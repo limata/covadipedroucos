@@ -6,5 +6,7 @@ class PagesController < ApplicationController
   end
 
   def home
+    @house = House.first
+    @booking = Booking.new
   end
 end

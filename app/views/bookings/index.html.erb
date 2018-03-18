@@ -1,0 +1,33 @@
+<p> this is an index of all bookings as it is. we need to make it relative to the current_user</p>
+
+<div class="container">
+  <div class="row">
+    <% if @bookings.blank? %>
+      <div>
+        <%= link_to gadgets_path do %>
+        <p class="text-center">Make your first booking today!</p>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="col-xs-12">
+        <div class="row">
+          <% @bookings.each do |booking| %>
+            <div class="col-xs-12 col-md-4 text-center">
+                <div class="card-bkng" style="background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0));">
+            <% house = booking.house %>
+                  <div class="card-category-bkng">
+                    <h2><%= booking.house.id %></h2>
+                    <h5><%= booking.house.price %></h5>
+                  </div>
+                  <div class="card-description-bkng">
+                    <p><%= "Booking starts at: #{booking.start_date}" %></p>
+                    <p><%= "Booking ends at: #{booking.end_date}" %></p>
+                  </div>
+                </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

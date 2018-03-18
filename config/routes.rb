@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
   get 'about', to: 'pages#about'
 
+  resources :houses do
+    resources :bookings, only: [:new, :create, :edit, :show]
+  end
+
+  resources :bookings, only: [:index]
+
   root to: 'pages#home'
 
 
